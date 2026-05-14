@@ -1,0 +1,15 @@
+{
+  "name": "claude-ocr-skill",
+  "version": "1.0.0",
+  "description": "Dual-engine OCR skill for Claude Code — GLM-OCR for text/formulas + GLM-4.6V for chart understanding",
+  "main": "ocr.js",
+  "scripts": {
+    "test": "node ocr.js"
+  },
+  "keywords": ["claude-code", "ocr", "pdf", "image", "latex", "chart"],
+  "license": "MIT",
+  "dependencies": {
+    "pdfjs-dist": "^4.10.38",
+    "sharp": "^0.33.0"
+  }
+}
