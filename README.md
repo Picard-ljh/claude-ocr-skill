@@ -9,40 +9,43 @@
 
 ---
 
-## 安装
+## 安装（推荐 ⭐）
 
-把你的智谱 API Key 准备好（[获取地址](https://open.bigmodel.cn)），然后：
+**只需把仓库链接发给 Claude Code，它会自动完成全部部署：**
+
+> 帮我装这个：https://github.com/Picard-ljh/claude-ocr-skill
+
+Claude Code 会自己 clone 仓库、安装依赖、配置 CLAUDE.md、问你要智谱 API Key、并跑测试验证。
+
+你只需要提前准备好智谱 API Key（[免费注册获取](https://open.bigmodel.cn)，GLM-OCR 仅 ¥0.2/百万 tokens）。
+
+---
+
+## 手动安装
+
+如果上面的方式不行，可以手动操作：
 
 ### Windows
 
-1. 下载本仓库，在文件夹中双击 `install.bat`
+1. 下载本仓库，双击 `install.bat`
 2. 输入你的智谱 API Key
 3. 完成
 
 ### Mac / Linux
 
 ```bash
-cd claude-ocr-skill
-bash install.sh
+cd claude-ocr-skill && bash install.sh
 ```
 
-### 手动安装
+### 纯命令
 
 ```bash
-# 1. 创建脚本目录
 mkdir -p ~/.claude/scripts
-
-# 2. 复制文件
 cp ocr.js package.json ~/.claude/scripts/
-
-# 3. 安装依赖
 cd ~/.claude/scripts && npm install
-
-# 4. 设置 API Key
 export ZHIPU_API_KEY="你的智谱APIKey"
-# 建议写入 ~/.bashrc 或 ~/.zshrc 永久生效
 
-# 5. 追加到 CLAUDE.md（若无）
+# 追加到 ~/.claude/CLAUDE.md（如未配置）
 cat >> ~/.claude/CLAUDE.md << 'EOF'
 
 # OCR 识图能力
@@ -68,20 +71,6 @@ EOF
 
 在 Claude Code 中，直接发送 PDF 或图片即可，AI 会自动调用 OCR 识别。
 
-### Claude Code 自助安装法
-
-把本仓库链接发给 Claude Code，它会自己：
-
-1. `git clone` 仓库
-2. 读 README 理解安装步骤
-3. 跑 `install.bat` / `install.sh`
-4. 问你要智谱 API Key
-5. 跑测试验证
-
-只需一句话：
-
-> 帮我装这个：https://github.com/asuojun/claude-ocr-skill
-
 ---
 
 ## 费用
@@ -92,12 +81,6 @@ EOF
 | 图表理解 | GLM-4.6V | ¥1 输入 / ¥3 输出 | < ¥0.01 |
 
 识别一篇 20 页论文约 ¥0.13。
-
----
-
-## 模型选择
-
-默认使用 GLM-4.6V 做图表理解。如需调整，编辑 `~/.claude/scripts/ocr.js` 修改 `VISION_MODEL`。
 
 ---
 
